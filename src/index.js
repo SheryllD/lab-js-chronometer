@@ -65,7 +65,7 @@ function setResetBtn() {
 // Start/Stop Button
 btnLeft.addEventListener('click', () => {
   if (btnLeft.classList.contains('start')) {
-    chronometer.start(printTime);
+    chronometer.start(printTime, printMilliseconds);
     setStopBtn();
     setSplitBtn();
   } else {
@@ -78,9 +78,14 @@ btnLeft.addEventListener('click', () => {
 // Reset/Split Button
 btnRight.addEventListener('click', () => {
   if (btnRight.classList.contains('reset')) {
-    chronometer.reset();
     clearSplits();
-    printTime();
+    chronometer.reset();
+    minDecElement.innerHTML = 0;
+    minUniElement.innerHTML = 0;
+    secDecElement.innerHTML = 0;
+    secUniElement.innerHTML = 0;
+    milDecElement.innerHTML = 0;
+    milUniElement.innerHTML = 0;  
   } else {
     printSplit();
   }
